@@ -11,7 +11,7 @@
 ## How data will be read
 ###### Reading data will just be done via a display like how a social media app showcases data.
 
-## Updating data for Project 2
+## Updating data
 ###### A user can update his or her posts.
 
 ## Deleting Data
