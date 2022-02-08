@@ -1,2 +1,1 @@
-I'm using Helment for security reasons.
-{This is for the purpose of commiting and checking that my node_modules don't come onto GitHub}
+I'm using Helmet for security reasons.
