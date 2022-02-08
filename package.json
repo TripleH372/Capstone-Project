@@ -1,0 +1,19 @@
+{
+  "name": "capstone-project",
+  "version": "1.0.0",
+  "description": "## Introduction ###### Many people have an alter ego or a second life that they live ###### This app is meant for them. ###### The two app sides are called Sidstagram and Goth's Lair",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TripleH372/Capstone-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TripleH372/Capstone-Project/issues"
+  },
+  "homepage": "https://github.com/TripleH372/Capstone-Project#readme"
+}
