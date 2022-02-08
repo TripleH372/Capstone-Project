@@ -20,6 +20,7 @@
 ## Models Used
 ###### Mongo Database for Sidstagram App.
 ###### Mongo Database for Goth's Lair App.
+###### Sequelize to connect Both Apps.
 
 ## Buttons
 ###### They will use React Components.
