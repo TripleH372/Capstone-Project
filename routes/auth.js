@@ -9,7 +9,7 @@ router.post("/register", async (req, res)=>{//change to post request
     const user1=await new User({ //maybe shouldn't use await
         username:req.body.username,
         email:req.body.email,
-        password:"*******", //Changing for now: switching back to asterisks or hashed Password
+        password:"*******" //Might need to make this req.body.password
         //actualPassword: req.body.password
     });
     //user1.User.deleteMany({}); //Put this back if needed to delete
@@ -32,7 +32,7 @@ router.post("/login", async(req, res)=>{
 
         res.status(200).json(user); //FIX THIS*/
         if(req.body.password === user.password && req.body.email === user.email) res.status(200).json(user); //I don't believe I need to include the req.body.email here
-        else res.status(403).json("Wrong Password!");
+        else res.status(401).json("Wrong Password!");//could also be a 400
     }
     catch(err){
         
@@ -41,3 +41,5 @@ router.post("/login", async(req, res)=>{
 });
 
 module.exports=router;
+
+//Before weird edits
