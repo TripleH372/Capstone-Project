@@ -1,6 +1,7 @@
 const router=require("express").Router();
 const { db } = require("../models/user");
 const User=require("../models/user");
+const bcrypt=require("bcrypt");
 
 router.post("/register", async (req, res)=>{//change to post request
     //console.log(req.body);
@@ -24,7 +25,9 @@ router.post("/register", async (req, res)=>{//change to post request
 router.post("/login", async(req, res)=>{
     try{
         const user=await User.findOne({email: req.body.email});
-        !user && res.status(404).json("User not found");
+        !user && res.status(404).json("User not found"); //might need to organize parantheses appropriately
+        const validPassword=await bcrypt.compare(req.body.password, user.password);
+        !validPassword && res.status(400).json("Wrong Password!");
     }
     catch(err){
         console.log(err);
