@@ -1,4 +1,4 @@
 I'm using Helmet for security reasons.
-In my auth, I don't know if I am doing my login route correctly.
+In my auth, I don't know if I am doing my login route correctly. In the login route, I might need to fix the code moving on. I should refer to the comments I made.
 I need to find a way to save my password for a specific user.
 Some of the sources in my Citations and Sources txt may not actually be used.

@@ -31,7 +31,7 @@ router.post("/login", async(req, res)=>{
         !validPassword && res.status(403).json("Wrong Password!"); //this does actually work properly, but I might need to debug even more down the line
 
         res.status(200).json(user); //FIX THIS*/
-        if(req.body.password === user.password) res.status(200).json(user);
+        if(req.body.password === user.password && req.body.email === user.email) res.status(200).json(user); //I don't believe I need to include the req.body.email here
         else res.status(403).json("Wrong Password!");
     }
     catch(err){
