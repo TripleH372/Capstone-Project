@@ -9,7 +9,7 @@ router.post("/register", async (req, res)=>{//change to post request
     const user1=await new User({ //maybe shouldn't use await
         username:req.body.username,
         email:req.body.email,
-        password:req.body.password, //Changing for now: switching back to asterisks or hashed Password
+        password:"*******", //Changing for now: switching back to asterisks or hashed Password
         //actualPassword: req.body.password
     });
     //user1.User.deleteMany({}); //Put this back if needed to delete
