@@ -27,10 +27,15 @@ router.post("/login", async(req, res)=>{
     try{
         const user=await User.findOne({email: req.body.email});//might need to change this to username
         !user && res.status(404).json("User not found"); //might need to organize parantheses appropriately
-        const validPassword=await bcrypt.compare(req.body.password, user.password);
+        /*const validPassword=await bcrypt.compare(req.body.password, user.password); //could try using ===
         !validPassword && res.status(403).json("Wrong Password!"); //this does actually work properly, but I might need to debug even more down the line
+
+        res.status(200).json(user); //FIX THIS*/
+        if(req.body.password === user.password) res.status(200).json(user);
+        else res.status(403).json("Wrong Password!");
     }
     catch(err){
+        
         console.log(err);
     }
 });
