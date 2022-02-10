@@ -9,7 +9,7 @@ router.post("/register", async (req, res)=>{//change to post request
     const user1=await new User({ //maybe shouldn't use await
         username:req.body.username,
         email:req.body.email,
-        password:"*******" //Might need to make this req.body.password
+        password:req.body.password //Might need to make this req.body.password
         //actualPassword: req.body.password
     });
     //user1.User.deleteMany({}); //Put this back if needed to delete
@@ -41,5 +41,3 @@ router.post("/login", async(req, res)=>{
 });
 
 module.exports=router;
-
-//Before weird edits
