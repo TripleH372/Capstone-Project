@@ -24,14 +24,14 @@ router.post("/register", async (req, res)=>{//change to post request
 
 router.post("/login", async(req, res)=>{
     try{
-        const user=await User.findOne({email: req.body.email});
+        const user=await User.findOne({email: req.body.email});//might need to change this to username
         !user && res.status(404).json("User not found"); //might need to organize parantheses appropriately
         const validPassword=await bcrypt.compare(req.body.password, user.password);
-        !validPassword && res.status(400).json("Wrong Password!");
+        !validPassword && res.status(400).json("Wrong Password!"); //this does actually work properly, but I might need to debug even more down the line
     }
     catch(err){
         console.log(err);
     }
-})
+});
 
 module.exports=router;
