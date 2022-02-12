@@ -45,8 +45,11 @@ router.put("/:id/follow", async(req, res) =>{
         //Code Later
     }
 });
-router.put("/:id/unfollow", async(req, res)=>{
-    //Try seeing if Follow and Unfollow should be coded together in the same request.
+router.put("/:id/unfollow", async(req, res)=>{ //This may be integrated with the follow button or merged with the follow button in another function.
+    if(req.body.userId===req.params.id) return res.status(403).json("Error: "+req.body.userId+" cannot unfollow himself or herself."); //Might not need to be a return function.
+    else{
+        //Code Later
+    }
 });
 
 //Should we get a user?
