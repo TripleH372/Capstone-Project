@@ -3,7 +3,7 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
 router.put("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id || req.body.isAdmin) {
+  if (req.body.userId === req.params.id || req.body.isAdmin) { //Might take out the part where we check for admin
     if (req.body.password) {
       try {
         const salt = await bcrypt.genSalt(10);
