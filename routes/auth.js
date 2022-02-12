@@ -4,40 +4,38 @@ const User=require("../models/user");
 const bcrypt=require("bcrypt");
 
 router.post("/register", async (req, res)=>{//change to post request
-    //console.log(req.body);
-    //const user1=await User.create(req.body);
-    const user1=await new User({ //maybe shouldn't use await
-        username:req.body.username,
-        email:req.body.email,
-        password:req.body.password //Might need to make this req.body.password
-        //actualPassword: req.body.password
-    });
-    //user1.User.deleteMany({}); //Put this back if needed to delete
-
-    try{
-        const user=await user1.save();
+    try {
+        
+        const salt = await bcrypt.genSalt(10); //trying bcrypt with a salt generated
+        const hashedPassword = await bcrypt.hash(req.body.password, salt); //Used the tutorial in my sources
+    
+        //create new user
+        const newUser = new User({
+          username: req.body.username,
+          email: req.body.email,
+          password: hashedPassword,
+        });
+        const user = await newUser.save();
         res.status(200).json(user);
-    }
-    catch(err){
-        console.log(err);
+    } 
+    catch (err) {
+        res.status(500).json(err)
     }
 });
 
 router.post("/login", async(req, res)=>{
-    try{
-        const user=await User.findOne({email: req.body.email});//might need to change this to username
-        !user && res.status(404).json("User not found"); //might need to organize parantheses appropriately
-        /*const validPassword=await bcrypt.compare(req.body.password, user.password); //could try using ===
-        !validPassword && res.status(403).json("Wrong Password!"); //this does actually work properly, but I might need to debug even more down the line
-
-        res.status(200).json(user); //FIX THIS*/
-        if(req.body.password === user.password && req.body.email === user.email) res.status(200).json(user); //I don't believe I need to include the req.body.email here
-        else res.status(401).json("Wrong Password!");//could also be a 400
-    }
-    catch(err){
-        
-        console.log(err);
-    }
-});
-
-module.exports=router;
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        !user && res.status(404).json("user not found");
+    
+        const validPassword = await bcrypt.compare(req.body.password, user.password)
+        !validPassword && res.status(400).json("wrong password")
+    
+        res.status(200).json(user)
+      } 
+      catch (err) {
+        res.status(500).json(err)
+      }
+    });
+    
+module.exports = router;
