@@ -33,3 +33,5 @@ app.use("/api/auth", authRoute);
 app.listen(8800, ()=>{
     console.log("FLIGHT TEAM STAND UP!");
 })
+
+//NOT WORKING AS INTENDED!

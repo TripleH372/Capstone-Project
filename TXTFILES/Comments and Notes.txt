@@ -4,3 +4,4 @@ I need to find a way to save my password for a specific user.
 Some of the sources in my Citations and Sources txt may not actually be used.
 Asterisks still work for my password. Now, I am using bcrypt.
 I might need to make follow and unfollow the same function or integrate them together in a separate function.
+My index.js is having some issues on it.
