@@ -7,3 +7,4 @@ I might need to make follow and unfollow the same function or integrate them tog
 My index.js is having some issues on it.
 My index.js and my postings.js should have another look at it.
 Might need to change the project name for NPX purposes.
+Edit Emoji Responses folder in the assets.
