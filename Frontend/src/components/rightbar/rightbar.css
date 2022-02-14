@@ -1,0 +1,45 @@
+.rightbar {
+  flex: 3.5;
+}
+
+.rightbarZ {
+  padding: 20px 20px 0 0;
+}
+
+
+
+
+.title{
+    margin-bottom: 20px;
+}
+
+.rightbarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.title{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.info{
+  margin-bottom: 30px;
+}
+
+.rightbarInfoItem{
+  margin-bottom: 10px;
+}
+
+.rightbarInfoKey{
+  font-weight: 500;
+  margin-right: 15px;
+  color: rgb(143, 70, 70);
+}
+
+.rightbarInfoValue{
+  font-weight: 300;
+}
+
