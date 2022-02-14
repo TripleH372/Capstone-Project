@@ -42,7 +42,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id/like", async (req, res) => {
+router.put("/:id/like", async (req, res) => { //Like and Unlike
   try {
     const post = await Post.findById(req.params.id);
     if (!post.likes.includes(req.body.userId)) {
